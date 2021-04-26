@@ -1,2 +1,4 @@
 bottle
 gunicorn
+numpy
+csv
