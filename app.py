@@ -20,6 +20,11 @@ def enable_cors(fn):
     return _enable_cors
 
 @enable_cors
+@route('/', method='GET')
+def index():
+    return 'Proyecto app-tp2-ia Operativo'
+
+@enable_cors
 @route('/manifestations', method='POST')
 def getResultManifestation():
     body = request.json
