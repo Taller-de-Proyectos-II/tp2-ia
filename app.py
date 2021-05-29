@@ -2,13 +2,13 @@ from sys import argv
 import bottle
 from bottle import route, run, request
 import numpy as np
-import tensorflow as tf
+import tensorflow.keras as k
 
 bottle.debug(True)
 
 # Recrea exactamente el mismo modelo solo desde el archivo
-model = tf.keras.models.load_model('path_to_my_model.h5')
-model_alert = tf.keras.models.load_model('path_to_my_model_alert.h5')
+model = k.models.load_model('path_to_my_model.h5')
+model_alert = k.models.load_model('path_to_my_model_alert.h5')
 
 def enable_cors(fn):
     def _enable_cors(*args, **kwargs):
@@ -62,7 +62,7 @@ def trainingManifestation():
 
 @enable_cors
 @route('/alerts', method='POST')
-def index2():
+def getResultAlert():
     body = request.json
     alerts = body.get('alerts')
     entrada = np.array([alerts])
@@ -75,7 +75,7 @@ def index2():
 
 @enable_cors
 @route('/alerts/training', method='POST')
-def trainingManifestation():
+def trainingAlert():
     try:
         training_data_aux = []
         target_data_aux = []
