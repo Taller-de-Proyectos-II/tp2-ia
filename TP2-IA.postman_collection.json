@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "fae1ab29-7e09-409b-9d3d-f8dc7bc4b6be",
+		"name": "TP2-IA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Manifestations",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"manifestations\": [\r\n        0,\r\n        0,\r\n        0,\r\n        1\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8081/manifestations",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8081",
+					"path": [
+						"manifestations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alerts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"alerts\": [\r\n        0,\r\n        0,\r\n        0,\r\n        0,\r\n        0,\r\n        1\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8081/alerts",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8081",
+					"path": [
+						"alerts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Training Manifestations",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"inputs\": [\r\n        [\r\n            0,\r\n            0,\r\n            0,\r\n            0\r\n        ],\r\n        [\r\n            1,\r\n            1,\r\n            1,\r\n            1\r\n        ]\r\n    ],\r\n    \"outputs\": [\r\n        [\r\n            0\r\n        ],\r\n        [\r\n            1\r\n        ]\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8081/manifestations/training",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8081",
+					"path": [
+						"manifestations",
+						"training"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Training Alerts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"inputs\": [\r\n        [\r\n            0,\r\n            0,\r\n            0,\r\n            0,\r\n            0,\r\n            0\r\n        ],\r\n        [\r\n            1,\r\n            1,\r\n            1,\r\n            1,\r\n            1,\r\n            1\r\n        ]\r\n    ],\r\n    \"outputs\": [\r\n        [\r\n            0\r\n        ],\r\n        [\r\n            1\r\n        ]\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8081/alerts/training",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8081",
+					"path": [
+						"alerts",
+						"training"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

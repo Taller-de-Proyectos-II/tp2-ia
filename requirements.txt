@@ -1,3 +1,4 @@
 bottle
 gunicorn
 numpy
+tensorflow==2.2
