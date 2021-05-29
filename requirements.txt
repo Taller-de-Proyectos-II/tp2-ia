@@ -1,4 +1,4 @@
 bottle
 gunicorn
 numpy
-tensorflow
+tensorflow-cpu
