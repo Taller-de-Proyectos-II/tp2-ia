@@ -10,6 +10,7 @@ bottle.debug(True)
 model = k.models.load_model('path_to_my_model.h5')
 model_alert = k.models.load_model('path_to_my_model_alert.h5')
 
+
 def enable_cors(fn):
     def _enable_cors(*args, **kwargs):
         response.headers['Access-Control-Allow-Origin'] = '*'
@@ -19,10 +20,12 @@ def enable_cors(fn):
             return fn(*args, **kwargs)
     return _enable_cors
 
+
 @enable_cors
 @route('/', method='GET')
 def index():
     return 'Proyecto app-tp2-ia Operativo'
+
 
 @enable_cors
 @route('/manifestations', method='POST')
@@ -37,8 +40,9 @@ def getResultManifestation():
     else:
         return 'No necesita asignación de prueba'
 
+
 @enable_cors
-@route('/manifestations/training', method='POST')
+@route('/manifestations/training',  method=['OPTIONS', 'POST'])
 def trainingManifestation():
     try:
         training_data_aux = []
@@ -57,13 +61,14 @@ def trainingManifestation():
 
         training_data = np.array(training_data_aux, "float32")
         target_data = np.array(target_data_aux, "float32")
-        
+
         scores = model.evaluate(training_data, target_data)
         print("\n%s: %.2f%%" % (model.metrics_names[1], scores[1]*100))
         model.save('path_to_my_model.h5')
         return 'Entrenamiento exitoso'
     except:
         return 'Entrenamiento fallido'
+
 
 @enable_cors
 @route('/alerts', method='POST')
@@ -78,8 +83,9 @@ def getResultAlert():
     else:
         return 'Sí'
 
+
 @enable_cors
-@route('/alerts/training', method='POST')
+@route('/alerts/training', method=['OPTIONS', 'POST'])
 def trainingAlert():
     try:
         training_data_aux = []
@@ -98,13 +104,14 @@ def trainingAlert():
 
         training_data = np.array(training_data_aux, "float32")
         target_data = np.array(target_data_aux, "float32")
-        
+
         scores = model_alert.evaluate(training_data, target_data)
         print("\n%s: %.2f%%" % (model_alert.metrics_names[1], scores[1]*100))
         model_alert.save('path_to_my_model_alert.h5')
         return 'Entrenamiento exitoso'
     except:
         return 'Entrenamiento fallido'
+
 
 if __name__ == '__main__':
     run(host='0.0.0.0', port=argv[1])
